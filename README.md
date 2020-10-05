@@ -1,24 +1,26 @@
 # Smart Attendance Tracker
 
 ### Steps to be followed for creating Pull Request
-1. ### Fork
+### 1. Fork
 
-You can find the fork buttom in the top right corner. 
-2. ### Clone 
+You can find the fork buttom in the top right corner.
+
+ 
+### 2. Clone 
 ```sh
 $ git clone https://github.com/YourUserName/attendanceApp.git
 ```
-3. ### Move Directory
+### 3. Move Directory
 ```sh
 # This will change directory to a folder attendanceApp
 $ cd attendanceApp
 ```
-4. ### Set up
+### 4. Set up
 ```sh
 $ git remote -v
 $ git remote add upstream https://github.com/akilvishnum/attendanceApp.git
 ```
-5. ### Create Branch
+### 5. Create Branch
 ```sh
 #Create branch named "yourBranchName"
 git checkout -b yourBranchName
@@ -34,7 +36,7 @@ git push -u origin yourBranchName
 
 ```
 
-6. ### Sync
+### 6.Sync
 
 
 Run this to reflect any changes done in the main in your local repo
