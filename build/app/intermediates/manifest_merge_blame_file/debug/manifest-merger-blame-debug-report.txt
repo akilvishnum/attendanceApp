@@ -1,0 +1,100 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.attendance"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="16"
+9        android:targetSdkVersion="28" />
+10    <!--
+11         Flutter needs it to communicate with the running application
+12         to allow setting breakpoints, to provide hot reload, etc.
+13    -->
+14    <uses-permission android:name="android.permission.INTERNET" />
+14-->/home/linux/Developer/attendance/android/app/src/debug/AndroidManifest.xml:6:5-66
+14-->/home/linux/Developer/attendance/android/app/src/debug/AndroidManifest.xml:6:22-64
+15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+15-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-80
+15-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-77
+16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+16-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-81
+16-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-78
+17    <!--
+18 io.flutter.app.FlutterApplication is an android.app.Application that
+19         calls FlutterMain.startInitialization(this); in its onCreate method.
+20         In most cases you can leave this as-is, but you if you want to provide
+21         additional functionality it is fine to subclass or reimplement
+22         FlutterApplication and put your custom class here.
+23    -->
+24    <application
+24-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:8:5-31:19
+25        android:name="io.flutter.app.FlutterApplication"
+25-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:9:9-57
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.1.0] /home/linux/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:18-86
+27        android:debuggable="true"
+28        android:icon="@mipmap/ic_launcher"
+28-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:11:9-43
+29        android:label="attendance" >
+29-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:10:9-35
+30        <activity
+30-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:12:9-30:20
+31            android:name="com.example.attendance.MainActivity"
+31-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:13:13-41
+32            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+32-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:16:13-163
+33            android:hardwareAccelerated="true"
+33-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:17:13-47
+34            android:launchMode="singleTop"
+34-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:14:13-43
+35            android:theme="@style/LaunchTheme"
+35-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:15:13-47
+36            android:windowSoftInputMode="adjustResize" >
+36-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:18:13-55
+37
+38            <!--
+39                 This keeps the window background of the activity showing
+40                 until Flutter renders its first frame. It can be removed if
+41                 there is no splash screen (such as the default splash screen
+42                 defined in @style/LaunchTheme).
+43            -->
+44            <meta-data
+44-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:23:13-25:40
+45                android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
+45-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:24:17-82
+46                android:value="true" />
+46-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:25:17-37
+47
+48            <intent-filter>
+48-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:26:13-29:29
+49                <action android:name="android.intent.action.MAIN" />
+49-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:27:17-68
+49-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:27:25-66
+50
+51                <category android:name="android.intent.category.LAUNCHER" />
+51-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:28:17-76
+51-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:28:27-74
+52            </intent-filter>
+53        </activity>
+54
+55        <provider
+55-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-19:20
+56            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+56-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-82
+57            android:authorities="com.example.attendance.flutter.image_provider"
+57-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-74
+58            android:exported="false"
+58-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-37
+59            android:grantUriPermissions="true" >
+59-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-47
+60            <meta-data
+60-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:75
+61                android:name="android.support.FILE_PROVIDER_PATHS"
+61-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-67
+62                android:resource="@xml/flutter_image_picker_file_paths" />
+62-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-72
+63        </provider>
+64    </application>
+65
+66</manifest>
