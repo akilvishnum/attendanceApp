@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-// checking
-//change 2 
-=======
+
 
 // akilvishnu
 // Uff. Checking again
