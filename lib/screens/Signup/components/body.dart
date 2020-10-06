@@ -29,10 +29,10 @@ class Body extends StatelessWidget {
                   
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [ Image.asset(
-                      'assets/images/thumbsup.png',
+                  children:[ SvgPicture.asset(
+                      'assets/images/signup.svg',
+                      width: size.width,
                       height: size.height * 0.35,
-                      width: 0.5 * size.width,
                     ),
                   ],
                 ),
