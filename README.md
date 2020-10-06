@@ -39,7 +39,7 @@ git push -u origin yourBranchName
 ### 6.Sync
 
 
-Run this to reflect any changes done in the main in your local repo
+Run this to reflect any changes done in the main to your local repo
 ```sh
 git fetch --all --prune
 
