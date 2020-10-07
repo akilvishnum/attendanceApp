@@ -12,89 +12,221 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/home/linux/Developer/attendance/android/app/src/debug/AndroidManifest.xml:6:5-66
-14-->/home/linux/Developer/attendance/android/app/src/debug/AndroidManifest.xml:6:22-64
+14-->C:\Users\asus\Desktop\attendanceApp\android\app\src\debug\AndroidManifest.xml:6:5-66
+14-->C:\Users\asus\Desktop\attendanceApp\android\app\src\debug\AndroidManifest.xml:6:22-64
 15    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-15-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-80
-15-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-77
+15-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-80
+15-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:7:22-77
 16    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-16-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-81
-16-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-78
-17    <!--
-18 io.flutter.app.FlutterApplication is an android.app.Application that
-19         calls FlutterMain.startInitialization(this); in its onCreate method.
-20         In most cases you can leave this as-is, but you if you want to provide
-21         additional functionality it is fine to subclass or reimplement
-22         FlutterApplication and put your custom class here.
-23    -->
-24    <application
-24-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:8:5-31:19
-25        android:name="io.flutter.app.FlutterApplication"
-25-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:9:9-57
-26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-26-->[androidx.core:core:1.1.0] /home/linux/.gradle/caches/transforms-2/files-2.1/a528b13ac93e64cafa3d0480e2c93207/core-1.1.0/AndroidManifest.xml:24:18-86
-27        android:debuggable="true"
-28        android:icon="@mipmap/ic_launcher"
-28-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:11:9-43
-29        android:label="attendance" >
-29-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:10:9-35
-30        <activity
-30-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:12:9-30:20
-31            android:name="com.example.attendance.MainActivity"
-31-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:13:13-41
-32            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-32-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:16:13-163
-33            android:hardwareAccelerated="true"
-33-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:17:13-47
-34            android:launchMode="singleTop"
-34-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:14:13-43
-35            android:theme="@style/LaunchTheme"
-35-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:15:13-47
-36            android:windowSoftInputMode="adjustResize" >
-36-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:18:13-55
-37
-38            <!--
-39                 This keeps the window background of the activity showing
-40                 until Flutter renders its first frame. It can be removed if
-41                 there is no splash screen (such as the default splash screen
-42                 defined in @style/LaunchTheme).
-43            -->
-44            <meta-data
-44-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:23:13-25:40
-45                android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
-45-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:24:17-82
-46                android:value="true" />
-46-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:25:17-37
-47
-48            <intent-filter>
-48-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:26:13-29:29
-49                <action android:name="android.intent.action.MAIN" />
-49-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:27:17-68
-49-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:27:25-66
+16-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-81
+16-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-78
+17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+17-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:24:5-79
+17-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:24:22-76
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:25:5-68
+18-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:25:22-65
+19    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+19-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:26:5-110
+19-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:26:22-107
+20    <!--
+21 io.flutter.app.FlutterApplication is an android.app.Application that
+22         calls FlutterMain.startInitialization(this); in its onCreate method.
+23         In most cases you can leave this as-is, but you if you want to provide
+24         additional functionality it is fine to subclass or reimplement
+25         FlutterApplication and put your custom class here.
+26    -->
+27    <application
+27-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:8:5-31:19
+28        android:name="io.flutter.app.FlutterApplication"
+28-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:9:9-57
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.1.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\c82bf40584b9a53c31dba07a8a48f301\core-1.1.0\AndroidManifest.xml:24:18-86
+30        android:debuggable="true"
+31        android:icon="@mipmap/ic_launcher"
+31-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:11:9-43
+32        android:label="attendance" >
+32-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:10:9-35
+33        <activity
+33-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:12:9-30:20
+34            android:name="com.example.attendance.MainActivity"
+34-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:13:13-41
+35            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+35-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:16:13-163
+36            android:hardwareAccelerated="true"
+36-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:17:13-47
+37            android:launchMode="singleTop"
+37-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:14:13-43
+38            android:theme="@style/LaunchTheme"
+38-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:15:13-47
+39            android:windowSoftInputMode="adjustResize" >
+39-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:18:13-55
+40
+41            <!--
+42                 This keeps the window background of the activity showing
+43                 until Flutter renders its first frame. It can be removed if
+44                 there is no splash screen (such as the default splash screen
+45                 defined in @style/LaunchTheme).
+46            -->
+47            <meta-data
+47-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:23:13-25:40
+48                android:name="io.flutter.app.android.SplashScreenUntilFirstFrame"
+48-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:24:17-82
+49                android:value="true" />
+49-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:25:17-37
 50
-51                <category android:name="android.intent.category.LAUNCHER" />
-51-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:28:17-76
-51-->/home/linux/Developer/attendance/android/app/src/main/AndroidManifest.xml:28:27-74
-52            </intent-filter>
-53        </activity>
-54
-55        <provider
-55-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-19:20
-56            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-56-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-82
-57            android:authorities="com.example.attendance.flutter.image_provider"
-57-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-74
-58            android:exported="false"
-58-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-37
-59            android:grantUriPermissions="true" >
-59-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-47
-60            <meta-data
-60-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:75
-61                android:name="android.support.FILE_PROVIDER_PATHS"
-61-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-67
-62                android:resource="@xml/flutter_image_picker_file_paths" />
-62-->[:image_picker] /home/linux/Developer/attendance/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-72
-63        </provider>
-64    </application>
-65
-66</manifest>
+51            <intent-filter>
+51-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:26:13-29:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:27:17-68
+52-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:27:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:28:17-76
+54-->C:\Users\asus\Desktop\attendanceApp\android\app\src\main\AndroidManifest.xml:28:27-74
+55            </intent-filter>
+56        </activity>
+57
+58        <service
+58-->[:firebase_auth] C:\Users\asus\Desktop\attendanceApp\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-12:19
+59            android:name="com.google.firebase.components.ComponentDiscoveryService"
+59-->[:firebase_auth] C:\Users\asus\Desktop\attendanceApp\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:8:18-89
+60            android:directBootAware="true"
+60-->[com.google.firebase:firebase-common:19.3.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\c8e72be67e0d41b0d4e55feb8bdbf378\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+61            android:exported="false" >
+61-->[com.google.android.gms:play-services-measurement-api:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\1a3250699b43b6eeef39bd60fb91ef38\play-services-measurement-api-17.5.0\AndroidManifest.xml:29:13-37
+62            <meta-data
+62-->[:firebase_auth] C:\Users\asus\Desktop\attendanceApp\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+63                android:name="com.google.firebase.components:io.flutter.plugins.firebase.auth.FlutterFirebaseAuthRegistrar"
+63-->[:firebase_auth] C:\Users\asus\Desktop\attendanceApp\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+64                android:value="com.google.firebase.components.ComponentRegistrar" />
+64-->[:firebase_auth] C:\Users\asus\Desktop\attendanceApp\build\firebase_auth\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+65            <meta-data
+65-->[:cloud_firestore] C:\Users\asus\Desktop\attendanceApp\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+66                android:name="com.google.firebase.components:io.flutter.plugins.firebase.firestore.FlutterFirebaseFirestoreRegistrar"
+66-->[:cloud_firestore] C:\Users\asus\Desktop\attendanceApp\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-134
+67                android:value="com.google.firebase.components.ComponentRegistrar" />
+67-->[:cloud_firestore] C:\Users\asus\Desktop\attendanceApp\build\cloud_firestore\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+68            <meta-data
+68-->[:firebase_core] C:\Users\asus\Desktop\attendanceApp\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:9:13-11:85
+69                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+69-->[:firebase_core] C:\Users\asus\Desktop\attendanceApp\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-124
+70                android:value="com.google.firebase.components.ComponentRegistrar" />
+70-->[:firebase_core] C:\Users\asus\Desktop\attendanceApp\build\firebase_core\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
+71            <meta-data
+71-->[com.google.android.gms:play-services-measurement-api:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\1a3250699b43b6eeef39bd60fb91ef38\play-services-measurement-api-17.5.0\AndroidManifest.xml:30:13-32:85
+72                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+72-->[com.google.android.gms:play-services-measurement-api:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\1a3250699b43b6eeef39bd60fb91ef38\play-services-measurement-api-17.5.0\AndroidManifest.xml:31:17-139
+73                android:value="com.google.firebase.components.ComponentRegistrar" />
+73-->[com.google.android.gms:play-services-measurement-api:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\1a3250699b43b6eeef39bd60fb91ef38\play-services-measurement-api-17.5.0\AndroidManifest.xml:32:17-82
+74            <meta-data
+74-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\fe171a292f41e69699e12217607aa471\firebase-installations-16.3.2\AndroidManifest.xml:17:13-19:85
+75                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+75-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\fe171a292f41e69699e12217607aa471\firebase-installations-16.3.2\AndroidManifest.xml:18:17-127
+76                android:value="com.google.firebase.components.ComponentRegistrar" />
+76-->[com.google.firebase:firebase-installations:16.3.2] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\fe171a292f41e69699e12217607aa471\firebase-installations-16.3.2\AndroidManifest.xml:19:17-82
+77            <meta-data
+77-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:36:13-38:85
+78                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+78-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:37:17-109
+79                android:value="com.google.firebase.components.ComponentRegistrar" />
+79-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:38:17-82
+80            <meta-data
+80-->[com.google.firebase:firebase-firestore:21.4.3] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\e03f7448bc1a8de7e272018af67cd014\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:20:13-22:85
+81                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+81-->[com.google.firebase:firebase-firestore:21.4.3] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\e03f7448bc1a8de7e272018af67cd014\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:21:17-111
+82                android:value="com.google.firebase.components.ComponentRegistrar" />
+82-->[com.google.firebase:firebase-firestore:21.4.3] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\e03f7448bc1a8de7e272018af67cd014\jetified-firebase-firestore-21.4.3\AndroidManifest.xml:22:17-82
+83        </service>
+84
+85        <provider
+85-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:11:9-19:20
+86            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+86-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:12:13-82
+87            android:authorities="com.example.attendance.flutter.image_provider"
+87-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-74
+88            android:exported="false"
+88-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-37
+89            android:grantUriPermissions="true" >
+89-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-47
+90            <meta-data
+90-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-18:75
+91                android:name="android.support.FILE_PROVIDER_PATHS"
+91-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:17:17-67
+92                android:resource="@xml/flutter_image_picker_file_paths" />
+92-->[:image_picker] C:\Users\asus\Desktop\attendanceApp\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-72
+93        </provider>
+94
+95        <receiver
+95-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:29:9-33:20
+96            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+96-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:30:13-85
+97            android:enabled="true"
+97-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:31:13-35
+98            android:exported="false" >
+98-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:32:13-37
+99        </receiver>
+100
+101        <service
+101-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:35:9-38:40
+102            android:name="com.google.android.gms.measurement.AppMeasurementService"
+102-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:36:13-84
+103            android:enabled="true"
+103-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:37:13-35
+104            android:exported="false" />
+104-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:38:13-37
+105        <service
+105-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:39:9-43:72
+106            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+106-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:40:13-87
+107            android:enabled="true"
+107-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:41:13-35
+108            android:exported="false"
+108-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:42:13-37
+109            android:permission="android.permission.BIND_JOB_SERVICE" />
+109-->[com.google.android.gms:play-services-measurement:17.5.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\4e5cfe0cf62758b0ab9a64590f82d272\play-services-measurement-17.5.0\AndroidManifest.xml:43:13-69
+110
+111        <activity
+111-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:24:9-31:50
+112            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+112-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:25:13-85
+113            android:excludeFromRecents="true"
+113-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:26:13-46
+114            android:exported="true"
+114-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:27:13-36
+115            android:launchMode="singleTask"
+115-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:28:13-44
+116            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+116-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:29:13-102
+117            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+117-->[com.google.firebase:firebase-auth:19.3.1] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\b4ce4d6c869bc34b48c8bdcf1bce8b34\firebase-auth-19.3.1\AndroidManifest.xml:30:13-72
+118
+119        <provider
+119-->[com.google.firebase:firebase-common:19.3.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\c8e72be67e0d41b0d4e55feb8bdbf378\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+120            android:name="com.google.firebase.provider.FirebaseInitProvider"
+120-->[com.google.firebase:firebase-common:19.3.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\c8e72be67e0d41b0d4e55feb8bdbf378\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+121            android:authorities="com.example.attendance.firebaseinitprovider"
+121-->[com.google.firebase:firebase-common:19.3.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\c8e72be67e0d41b0d4e55feb8bdbf378\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+122            android:exported="false"
+122-->[com.google.firebase:firebase-common:19.3.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\c8e72be67e0d41b0d4e55feb8bdbf378\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+123            android:initOrder="100" />
+123-->[com.google.firebase:firebase-common:19.3.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\c8e72be67e0d41b0d4e55feb8bdbf378\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+124
+125        <activity
+125-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\305810ef8fc47e071d195449a3860a09\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+126            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+126-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\305810ef8fc47e071d195449a3860a09\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+127            android:exported="false"
+127-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\305810ef8fc47e071d195449a3860a09\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+128            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+128-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\305810ef8fc47e071d195449a3860a09\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+129
+130        <meta-data
+130-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\405a42316ecc437dc907853872a2f8e5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+131            android:name="com.google.android.gms.version"
+131-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\405a42316ecc437dc907853872a2f8e5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+132            android:value="@integer/google_play_services_version" />
+132-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\asus\.gradle\caches\transforms-2\files-2.1\405a42316ecc437dc907853872a2f8e5\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+133    </application>
+134
+135</manifest>
