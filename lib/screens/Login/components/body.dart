@@ -32,23 +32,24 @@ class Body extends StatelessWidget {
               "LOGIN",
               style: kSubheadingextStyle.copyWith(fontWeight: FontWeight.bold),
             ),
+            SizedBox(height: size.height * 0.03),
             Container(
               width: size.width,
-              height: size.height * 0.4,
+              height: size.height * 0.35,
               child: Container(
                 child: Column(
+                  
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/person2.png',
-                      width: 200,
-                      height: size.height * 0.27,
+                  children:[ SvgPicture.asset(
+                      'assets/images/login.svg',
+                      width: size.width,
+                      height: size.height * 0.35,
                     ),
                   ],
                 ),
               ),
-            ),
+            ),  
             RoundedInputField(
               hintText: "Your Email",
               onChanged: (value) {
