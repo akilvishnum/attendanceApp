@@ -28,16 +28,15 @@ class Body extends StatelessWidget {
                   
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                   children:[ SvgPicture.asset(
-                      'assets/images/welcome.svg',
-                      width: size.width,
+                    children: [ Image.asset(
+                      'assets/images/heart.png',
                       height: size.height * 0.35,
+                      width: 0.5 * size.width,
                     ),
                   ],
                 ),
-                ),
               ),
-            
+            ),
             RoundedButton(
               text: "LOGIN",
               press: () {

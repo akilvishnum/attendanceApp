@@ -1,7 +1,6 @@
 import 'package:attendance/constraints.dart';
 import 'package:flutter/material.dart';
 
-
 class AddUserClass extends StatefulWidget {
   final String _classOrStudent;
   const AddUserClass(this._classOrStudent);
