@@ -15,29 +15,27 @@ class BottomNavScreen extends StatefulWidget {
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   var sample;
-  void newcall() async {
-    pref = await SharedPreferences.getInstance();
-  }
+  // Future newcall() async {
+  //   pref = await SharedPreferences.getInstance();
+  // }
 
   @override
   void initState() {
-    newcall();
-    setState(() {
-      email = pref.getString('email');
+    super.initState();
+    SharedPreferences.getInstance().then((SharedPreferences sp){
+      pref = sp;
+      email = sp.getString('email');
+      if(email == null){
+        email = null;
+        email = 'akil@gmail.com';
+      }
+      setState(() {});
     });
   }
 
   @override
   Future<bool> _onBackPressed() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    email = preferences.getString('email');
-    await FirebaseFirestore.instance
-        .collection('Staff')
-        .doc(email)
-        .get()
-        .then((value) {
-      sample = value.get('Email');
-    });
+  
     return showDialog(
           context: context,
           builder: (context) {
