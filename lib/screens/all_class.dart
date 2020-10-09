@@ -329,10 +329,10 @@ class _AllClassState extends State<AllClass> {
   //   return email;
   // }
 
-  // @override
-  // void initState() {
-  //   newCall();
-  // }
+  @override
+  void initState() {
+    print(widget.email);
+  }
 
   // DocumentReference ins = FirebaseFirestore.instance
   //     .collection('Staff')

@@ -20,11 +20,6 @@ class _AddUserClassState extends State<AddUserClass> {
   String email, classname;
   dynamic studentRollNo;
   @override
-  void initState() {
-    BottomNavScreen();
-  }
-
-  @override
   Widget build(BuildContext context) {
     var _width = MediaQuery.of(context).size.width;
     var _height = MediaQuery.of(context).size.height;
@@ -186,7 +181,8 @@ class _AddUserClassState extends State<AddUserClass> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => AllClass(email)));
+                                        builder: (context) =>
+                                            BottomNavScreen()));
                               }
                             },
                             child: Container(

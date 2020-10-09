@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 String email;
+SharedPreferences pref;
 
 class BottomNavScreen extends StatefulWidget {
   @override
@@ -14,6 +15,18 @@ class BottomNavScreen extends StatefulWidget {
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   var sample;
+  void newcall() async {
+    pref = await SharedPreferences.getInstance();
+  }
+
+  @override
+  void initState() {
+    newcall();
+    setState(() {
+      email = pref.getString('email');
+    });
+  }
+
   @override
   Future<bool> _onBackPressed() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
