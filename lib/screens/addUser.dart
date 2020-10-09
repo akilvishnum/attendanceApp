@@ -19,7 +19,6 @@ class AddUserClass extends StatefulWidget {
 class _AddUserClassState extends State<AddUserClass> {
   String email, classname;
   dynamic studentRollNo;
-
   @override
   Widget build(BuildContext context) {
     var _width = MediaQuery.of(context).size.width;

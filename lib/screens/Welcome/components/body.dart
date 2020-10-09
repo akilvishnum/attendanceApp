@@ -25,11 +25,11 @@ class Body extends StatelessWidget {
               height: size.height * 0.5,
               child: Container(
                 child: Column(
-                  
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [ Image.asset(
-                      'assets/images/heart.png',
+                  children: [
+                    Image.asset(
+                      'assets/images/pers.png',
                       height: size.height * 0.35,
                       width: 0.5 * size.width,
                     ),

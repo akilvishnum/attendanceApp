@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance/screens/screens.dart';
@@ -7,6 +6,8 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AllClass extends StatefulWidget {
+  final String email;
+  AllClass(this.email);
   @override
   _AllClassState createState() => _AllClassState();
 }
@@ -291,36 +292,53 @@ void addClass(String name, int student, String image) {
 }
 
 class _AllClassState extends State<AllClass> {
-  String email;
   double helper(var index) {
     return index % 4 == 0 || index % 3 == 0 ? 240 : 200;
   }
 
-  void newCall() async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    email = preferences.getString('email');
-    await FirebaseFirestore.instance
-        .collection('Staff')
-        .doc(email)
-        .collection('Classrooms')
-        .get()
-        .then((querysnapshot) {
-      querysnapshot.docs.forEach((result) {
-        addClass(result.get('name'), result.get('number'), result.get('image'));
-        print(result.data());
-      });
-    });
-  }
+  // void newCall() async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   email = preferences.getString('email');
+  //   await FirebaseFirestore.instance
+  //       .collection('Staff')
+  //       .doc('bala@gmail.com')
+  //       .collection('Classrooms')
+  //       .get()
+  //       .then((querysnapshot) {
+  //     querysnapshot.docs.forEach((result) {
+  //       addClass(result.get('name'), result.get('number'), result.get('image'));
+  //       print(result.data());
+  //     });
+  //   });
+  // }
+
+  // void newCall() async {
+  //   SharedPreferences preferences = await SharedPreferences.getInstance();
+  //   email = preferences.getString('email');
+  // }
+
+  // @override
+  // void initState() {
+  //   newList.clear();
+  //   classDetails.clear();
+  //   //addClass('Cloud', 20, 'assets/images/ux_design.jpg');
+  //   newCall();
+  //   super.initState();
+  // }
+  // String getData() {
+  //   return email;
+  // }
 
   @override
   void initState() {
-    newList.clear();
-    classDetails.clear();
-    //addClass('Cloud', 20, 'assets/images/ux_design.jpg');
-    newCall();
-    super.initState();
+    print(widget.email);
   }
 
+  // DocumentReference ins = FirebaseFirestore.instance
+  //     .collection('Staff')
+  //     .doc(getData())
+  //     .collection('Classrooms')
+  //     .get();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -343,7 +361,7 @@ class _AllClassState extends State<AllClass> {
             StreamBuilder(
               stream: FirebaseFirestore.instance
                   .collection('Staff')
-                  .doc('bala@gmail.com')
+                  .doc(widget.email)
                   .collection('Classrooms')
                   .snapshots(),
               builder: (BuildContext context,

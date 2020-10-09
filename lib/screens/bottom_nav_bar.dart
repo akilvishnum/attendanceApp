@@ -5,14 +5,27 @@ import 'package:attendance/screens/screens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+String email;
+SharedPreferences pref;
+
 class BottomNavScreen extends StatefulWidget {
   @override
   _BottomNavScreenState createState() => _BottomNavScreenState();
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
-  String email;
   var sample;
+  void newcall() async {
+    pref = await SharedPreferences.getInstance();
+  }
+
+  @override
+  void initState() {
+    newcall();
+    setState(() {
+      email = pref.getString('email');
+    });
+  }
 
   @override
   Future<bool> _onBackPressed() async {
@@ -117,38 +130,12 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
               ),
             );
           },
-          //  new AlertDialog(
-          //   title: new Text('Are you sure?'),
-          //   content: new Text('Do you want to log out?'),
-          //   actions: <Widget>[
-          //     new GestureDetector(
-          //       onTap: () {
-          //         Navigator.pop(context);
-          //         print(sample);
-          //       },
-          //       // onTap: () => Navigator.push(context,
-          //       //     MaterialPageRoute(builder: (context) => BottomNavScreen())),
-          //       child: Text("NO"),
-          //     ),
-          //     SizedBox(height: 16),
-          //     new GestureDetector(
-          //       onTap: () async {
-          //         SharedPreferences pref =
-          //             await SharedPreferences.getInstance();
-          //         pref.remove('email');
-          //         Navigator.push(context,
-          //             MaterialPageRoute(builder: (context) => LoginScreen()));
-          //       },
-          //       child: Text("YES"),
-          //     ),
-          //   ],
-          // ),
         ) ??
         false;
   }
 
   final List _screens = [
-    AllClass(),
+    AllClass(email),
     AddUserClass("Class", null),
     Scaffold(),
     Scaffold(),

@@ -3,6 +3,7 @@ import 'package:attendance/screens/screens.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:attendance/screens/bottom_nav_bar.dart';
+
 //Suriya
 // void main() => runApp(MyApp());
 void main() async {
