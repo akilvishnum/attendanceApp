@@ -33,7 +33,8 @@ class Body extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children:[ SvgPicture.asset(
+                  children: [
+                    SvgPicture.asset(
                       'assets/images/signup.svg',
                       width: size.width,
                       height: size.height * 0.35,
@@ -41,7 +42,7 @@ class Body extends StatelessWidget {
                   ],
                 ),
               ),
-            ),  
+            ),
             RoundedInputField(
               hintText: "Your Email",
               onChanged: (value) {

@@ -19,6 +19,10 @@ class AddUserClass extends StatefulWidget {
 class _AddUserClassState extends State<AddUserClass> {
   String email, classname;
   dynamic studentRollNo;
+  @override
+  void initState() {
+    BottomNavScreen();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -182,8 +186,7 @@ class _AddUserClassState extends State<AddUserClass> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            BottomNavScreen()));
+                                        builder: (context) => AllClass(email)));
                               }
                             },
                             child: Container(
