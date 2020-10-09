@@ -29,7 +29,7 @@ class Body extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image.asset(
-                      'assets/images/pers.png',
+                      'assets/images/welcome.png',
                       height: size.height * 0.35,
                       width: 0.5 * size.width,
                     ),
