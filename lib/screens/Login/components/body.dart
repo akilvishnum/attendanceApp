@@ -7,7 +7,7 @@ import 'package:attendance/components/already_have_an_account_acheck.dart';
 import 'package:attendance/components/rounded_button.dart';
 import 'package:attendance/components/rounded_input_field.dart';
 import 'package:attendance/components/rounded_password_field.dart';
-//import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,10 +38,10 @@ class Body extends StatelessWidget {
               height: size.height * 0.35,
               child: Container(
                 child: Column(
-                  
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children:[ SvgPicture.asset(
+                  children: [
+                    SvgPicture.asset(
                       'assets/images/login.svg',
                       width: size.width,
                       height: size.height * 0.35,
@@ -49,7 +49,7 @@ class Body extends StatelessWidget {
                   ],
                 ),
               ),
-            ),  
+            ),
             RoundedInputField(
               hintText: "Your Email",
               onChanged: (value) {

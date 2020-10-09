@@ -18,9 +18,24 @@ var classesData = [
     'students': 13,
     'image': "assets/images/cloud.jpg"
   },
-  {"name": "Compiler Engineering", 'students': 17, 'image': "assets/images/ux_design.jpg"},
-  {"name": "Compiler Engineering", 'students': 17, 'image': "assets/images/compiler.jpg"},
-  {"name": "Compiler Engineering", 'students': 17, 'image': "assets/images/cloud.jpg"},
-  {"name": "Compiler Engineering", 'students': 17, 'image': "assets/images/compiler.jpg"},
-  
+  {
+    "name": "Compiler Engineering",
+    'students': 17,
+    'image': "assets/images/ux_design.jpg"
+  },
+  {
+    "name": "Compiler Engineering",
+    'students': 17,
+    'image': "assets/images/compiler.jpg"
+  },
+  {
+    "name": "Compiler Engineering",
+    'students': 17,
+    'image': "assets/images/cloud.jpg"
+  },
+  {
+    "name": "Compiler Engineering",
+    'students': 17,
+    'image': "assets/images/compiler.jpg"
+  },
 ];

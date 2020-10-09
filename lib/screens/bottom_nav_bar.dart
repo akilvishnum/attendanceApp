@@ -1,7 +1,9 @@
+import 'package:attendance/constants.dart';
 import 'package:attendance/screens/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance/screens/screens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class BottomNavScreen extends StatefulWidget {
   @override
@@ -9,42 +11,145 @@ class BottomNavScreen extends StatefulWidget {
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
+  String email;
+  var sample;
+
   @override
-  Future<bool> _onBackPressed() {
+  Future<bool> _onBackPressed() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    email = preferences.getString('email');
+    await FirebaseFirestore.instance
+        .collection('Staff')
+        .doc(email)
+        .get()
+        .then((value) {
+      sample = value.get('Email');
+    });
     return showDialog(
           context: context,
-          builder: (context) => new AlertDialog(
-            title: new Text('Are you sure?'),
-            content: new Text('Do you want to log out?'),
-            actions: <Widget>[
-              new GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                // onTap: () => Navigator.push(context,
-                //     MaterialPageRoute(builder: (context) => BottomNavScreen())),
-                child: Text("NO"),
+          builder: (context) {
+            return Dialog(
+              child: Container(
+                width: MediaQuery.of(context).size.width - 20,
+                height: MediaQuery.of(context).size.height / 4,
+                decoration: BoxDecoration(
+                  color: kPrimaryLightColor,
+                ),
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                      alignment: Alignment.center,
+                      child: Column(
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.only(top: 10),
+                            child:
+                                Text("Are you sure?", style: kHeadingextStyle),
+                          ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text("Do you want to log out.",
+                              style: kTitleTextStyle),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      left: MediaQuery.of(context).size.width / 8,
+                      bottom: MediaQuery.of(context).size.height / 30,
+                      child: Container(
+                        child: Row(
+                          children: <Widget>[
+                            InkWell(
+                              onTap: () async {
+                                SharedPreferences pref =
+                                    await SharedPreferences.getInstance();
+                                pref.remove('email');
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => LoginScreen()));
+                              },
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 100,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                    10,
+                                  ),
+                                  color: kPrimaryColor,
+                                ),
+                                child: Text("YES",
+                                    style: kTitleTextStyle.copyWith(
+                                        color: Colors.white)),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 30,
+                            ),
+                            InkWell(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 100,
+                                height: 50,
+                                decoration: BoxDecoration(
+                                  border: Border.all(color: kPrimaryColor),
+                                  borderRadius: BorderRadius.circular(
+                                    10,
+                                  ),
+                                  color: kPrimaryLightColor,
+                                ),
+                                child: Text("NO",
+                                    style: kTitleTextStyle.copyWith(
+                                        color: kPrimaryColor)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(height: 16),
-              new GestureDetector(
-                onTap: () async {
-                  SharedPreferences pref =
-                      await SharedPreferences.getInstance();
-                  pref.remove('email');
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => LoginScreen()));
-                },
-                child: Text("YES"),
-              ),
-            ],
-          ),
+            );
+          },
+          //  new AlertDialog(
+          //   title: new Text('Are you sure?'),
+          //   content: new Text('Do you want to log out?'),
+          //   actions: <Widget>[
+          //     new GestureDetector(
+          //       onTap: () {
+          //         Navigator.pop(context);
+          //         print(sample);
+          //       },
+          //       // onTap: () => Navigator.push(context,
+          //       //     MaterialPageRoute(builder: (context) => BottomNavScreen())),
+          //       child: Text("NO"),
+          //     ),
+          //     SizedBox(height: 16),
+          //     new GestureDetector(
+          //       onTap: () async {
+          //         SharedPreferences pref =
+          //             await SharedPreferences.getInstance();
+          //         pref.remove('email');
+          //         Navigator.push(context,
+          //             MaterialPageRoute(builder: (context) => LoginScreen()));
+          //       },
+          //       child: Text("YES"),
+          //     ),
+          //   ],
+          // ),
         ) ??
         false;
   }
 
   final List _screens = [
     AllClass(),
-    AddUserClass("Class"),
+    AddUserClass("Class", null),
     Scaffold(),
     Scaffold(),
   ];
