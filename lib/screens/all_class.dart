@@ -1,9 +1,11 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance/screens/screens.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 
 class AllClass extends StatefulWidget {
   final String email;
@@ -12,10 +14,15 @@ class AllClass extends StatefulWidget {
   _AllClassState createState() => _AllClassState();
 }
 
-class ClassScreen extends StatelessWidget {
+class ClassScreen extends StatefulWidget {
+  final String _className, _studentsCount, userEmail;
+  ClassScreen(this._className, this._studentsCount, this.userEmail);
   @override
-  final String _className, _studentsCount;
-  ClassScreen(this._className, this._studentsCount);
+  _ClassScreenState createState() => _ClassScreenState();
+}
+
+class _ClassScreenState extends State<ClassScreen> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -50,66 +57,39 @@ class ClassScreen extends StatelessWidget {
                 ),
                 child: Stack(
                   children: <Widget>[
-                    ListView(
+                    Padding(
                       padding: const EdgeInsets.all(30),
-                      children: <Widget>[
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Text(_className, style: kHeadingextStyle),
-                            SizedBox(height: 10),
-                            Text("$_studentsCount Students",
-                                style: kTitleTextStyle.copyWith(
-                                    color: kTextColor.withOpacity(.50))),
-                            SizedBox(height: 35),
-                            Students(
-                              name: "Akil Vishnu",
-                              rollNo: "2018115010",
-                              numBer: "01",
-                            ),
-                            Students(
-                              name: "Virat Kohli",
-                              rollNo: "2018115010",
-                              numBer: "02",
-                            ),
-                            Students(
-                              name: "MS Dhoni",
-                              rollNo: "2018115010",
-                              numBer: "03",
-                            ),
-                            Students(
-                              name: "Anushka Sharma",
-                              rollNo: "2018115010",
-                              numBer: "04",
-                            ),
-                            Students(
-                              name: "Pooja Hegde",
-                              rollNo: "2018115010",
-                              numBer: "05",
-                            ),
-                            Students(
-                              name: "Samantha",
-                              rollNo: "2018115010",
-                              numBer: "06",
-                            ),
-                            Students(
-                              name: "Disha Patani",
-                              rollNo: "2018115010",
-                              numBer: "07",
-                            ),
-                            Students(
-                              name: "Bala",
-                              rollNo: "2018115010",
-                              numBer: "08",
-                            ),
-                            Students(
-                              name: "Jasprit Bumrah",
-                              rollNo: "2018115010",
-                              numBer: "09",
-                            ),
-                          ],
-                        ),
-                      ],
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: <Widget>[
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(widget._className, style: kHeadingextStyle),
+                              SizedBox(height: 10),
+                              Text("${widget._studentsCount} Students",
+                                  style: kTitleTextStyle.copyWith(
+                                      color: kTextColor.withOpacity(.50))),
+                              SizedBox(height: 35),
+                              StreamBuilder(
+                                stream: FirebaseFirestore.instance
+                                    .collection('Staff')
+                                    .doc(email)
+                                    .collection('Classrooms')
+                                    .doc(widget._className)
+                                    .snapshots(),
+                                builder: (BuildContext context,
+                                    AsyncSnapshot<DocumentSnapshot> snapshot) {
+                                  if (!snapshot.hasData)
+                                    return CircularProgressIndicator();
+                                  return StudentBuilder(snapshot.data.data());
+                                },
+                              ),
+                              SizedBox(height:60),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                     Positioned(
                       right: 0,
@@ -138,8 +118,8 @@ class ClassScreen extends StatelessWidget {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          AddUserClass("Student", _className)),
+                                      builder: (context) => AddUserClass(
+                                          "Student", widget._className)),
                                 );
                               },
                               child: Container(
@@ -205,6 +185,57 @@ class ClassScreen extends StatelessWidget {
   }
 }
 
+class StudentBuilder extends StatelessWidget {
+  final Map<String, dynamic> docData;
+  StudentBuilder(this.docData);
+  @override
+  Widget build(BuildContext context) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children:[
+              ConstrainedBox(
+                constraints: BoxConstraints(maxHeight: 50000),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: ScrollPhysics(),
+                  itemCount: docData['students'].length,
+                  itemBuilder: (context, index){
+                    // return Padding(padding: EdgeInsets.all(20), child: Text("Cool"));
+                    return Padding(
+                      padding: EdgeInsets.all(10),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            ((index + 1 < 10) ? "0" : "" )+ (index + 1).toString(),
+                            style:
+                                kHeadingextStyle.copyWith(color: kTextColor.withOpacity(.15)),
+                          ),
+                          SizedBox(width: 30),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: docData['students'][index],
+                                  style: kSubtitleTextSyule.copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.5,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      );
+                  },
+                ),
+              ),
+            ],
+          );
+  }
+}
+
 class Students extends StatelessWidget {
   final String numBer;
   final String rollNo;
@@ -247,91 +278,16 @@ class Students extends StatelessWidget {
   }
 }
 
-class RedScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.red,
-    );
-  }
-}
-
-class GreenScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.green,
-    );
-  }
-}
-
-final List _colorScreen = [
-  ClassScreen("Cloud Computing", "17"),
-  ClassScreen("Flutter", "200"),
-  ClassScreen("Compiler", "1"),
-];
-int other(int index) {
-  if (index >= 2)
-    return 2;
-  else
-    return index;
-}
-
-List<Class> newList = [];
-List<ClassScreen> classDetails = [];
-void addClass(String name, int student, String image) {
-  Class a = new Class(name, student, image);
-  ClassScreen b = new ClassScreen(name, student.toString());
-  if (!classDetails.contains(b)) {
-    classDetails.add(b);
-  }
-  //if (!newList.contains(a)) {
-  newList.add(a);
-  //}
-  //print(newList[0].name);
-}
-
 class _AllClassState extends State<AllClass> {
   double helper(var index) {
     return index % 4 == 0 || index % 3 == 0 ? 240 : 200;
   }
 
-  // void newCall() async {
-  //   SharedPreferences preferences = await SharedPreferences.getInstance();
-  //   email = preferences.getString('email');
-  //   await FirebaseFirestore.instance
-  //       .collection('Staff')
-  //       .doc('bala@gmail.com')
-  //       .collection('Classrooms')
-  //       .get()
-  //       .then((querysnapshot) {
-  //     querysnapshot.docs.forEach((result) {
-  //       addClass(result.get('name'), result.get('number'), result.get('image'));
-  //       print(result.data());
-  //     });
-  //   });
-  // }
-
-  // void newCall() async {
-  //   SharedPreferences preferences = await SharedPreferences.getInstance();
-  //   email = preferences.getString('email');
-  // }
-
-  // @override
-  // void initState() {
-  //   newList.clear();
-  //   classDetails.clear();
-  //   //addClass('Cloud', 20, 'assets/images/ux_design.jpg');
-  //   newCall();
-  //   super.initState();
-  // }
-  // String getData() {
-  //   return email;
-  // }
 
   @override
   void initState() {
     print(widget.email);
+    super.initState();
   }
 
   // DocumentReference ins = FirebaseFirestore.instance
@@ -369,45 +325,6 @@ class _AllClassState extends State<AllClass> {
                 if (!snapshot.hasData) return CircularProgressIndicator();
                 return Sview(documents: snapshot.data.docs);
               },
-              // child: Expanded(
-              //   child: StaggeredGridView.countBuilder(
-              //     crossAxisCount: 2,
-              //     itemCount: newList.length,
-              //     crossAxisSpacing: 20,
-              //     mainAxisSpacing: 20,
-              //     itemBuilder: (context, index) {
-              //       return Material(
-              //         child: InkWell(
-              //           onTap: () {
-              //             Navigator.push(
-              //               context,
-              //               MaterialPageRoute(
-              //                   builder: (context) => classDetails[index]),
-              //             );
-              //           },
-              //           child: Container(
-              //             padding: EdgeInsets.all(20),
-              //             height: helper(index),
-              //             decoration: BoxDecoration(
-              //               borderRadius: BorderRadius.circular(16),
-              //               image: DecorationImage(
-              //                 image: AssetImage(newList[index].image),
-              //                 fit: BoxFit.fill,
-              //               ),
-              //             ),
-              //             child: Column(
-              //               crossAxisAlignment: CrossAxisAlignment.start,
-              //               children: <Widget>[
-              //                 Text(newList[index].name, style: kTitleTextStyle),
-              //               ],
-              //             ),
-              //           ),
-              //         ),
-              //       );
-              //     },
-              //     staggeredTileBuilder: (index) => StaggeredTile.fit(1),
-              //   ),
-              // ),
             ),
           ],
         ),
@@ -433,7 +350,7 @@ class Sview extends StatelessWidget {
         mainAxisSpacing: 20,
         itemBuilder: (context, index) {
           String name = documents[index].get('name');
-          String number = documents[index].get('number').toString();
+          //String number = documents[index].get('number').toString();
           String image = documents[index].get('image');
           return Material(
             child: InkWell(
@@ -441,7 +358,8 @@ class Sview extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => ClassScreen(name, number)),
+                      builder: (context) =>
+                          ClassScreen(name, 0.toString(), email)),
                 );
               },
               child: Container(
