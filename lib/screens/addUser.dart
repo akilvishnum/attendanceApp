@@ -1,5 +1,9 @@
 //import 'dart:js_util';
 
+import 'dart:developer';
+import 'dart:ffi';
+//import 'dart:html';
+
 import 'package:attendance/constraints.dart';
 import 'package:attendance/model/classes.dart';
 import 'package:attendance/screens/all_class.dart';
@@ -18,7 +22,8 @@ class AddUserClass extends StatefulWidget {
 
 class _AddUserClassState extends State<AddUserClass> {
   String email, classname;
-  dynamic studentRollNo;
+  String studentRollNo;
+  int x;
   @override
   Widget build(BuildContext context) {
     var _width = MediaQuery.of(context).size.width;
@@ -118,23 +123,52 @@ class _AddUserClassState extends State<AddUserClass> {
                                 FirebaseFirestore.instance
                                     .runTransaction((transaction) async {
                                   try {
-                                    await FirebaseFirestore.instance
-                                        .collection('Staff')
-                                        .doc(email)
-                                        .collection('Classrooms')
-                                        .doc(widget._currentClassName)
-                                        .update({
-                                      'students':
-                                          FieldValue.arrayUnion([studentRollNo])
+                                    DocumentReference ins =
+                                        await FirebaseFirestore.instance
+                                            .collection('Staff')
+                                            .doc(email)
+                                            .collection('Classrooms')
+                                            .doc(widget._currentClassName);
+                                    ins.snapshots().listen((event) {
+                                      event.data().forEach((key, value) {
+                                        if (key == "students") {
+                                          x = value.length;
+                                          print(x);
+                                        }
+                                      });
                                     });
+                                    if (x == null) CircularProgressIndicator;
+                                    print("The value of x is $x");
+                                    ins.update({
+                                      'students': FieldValue.arrayUnion(
+                                          [studentRollNo]),
+                                    });
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => ClassScreen(
+                                                widget._currentClassName,
+                                                x.toString(),
+                                                email)));
+                                    // await FirebaseFirestore.instance
+                                    //     .collection('Staff')
+                                    //     .doc(email)
+                                    //     .collection('Classrooms')
+                                    //     .doc(widget._currentClassName).
+                                    //     .update({
+                                    //   'students': FieldValue.arrayUnion(
+                                    //       [studentRollNo]),
+                                    //       'number':
+                                    // });
                                     Fluttertoast.showToast(
                                       msg: "Successfully added $studentRollNo",
                                       toastLength: Toast.LENGTH_SHORT,
                                       gravity: ToastGravity.TOP,
                                     );
                                   } catch (e) {
+                                    //print(e.message);
                                     Fluttertoast.showToast(
-                                      msg: "Try again adding $classname",
+                                      msg: "Try again adding $studentRollNo",
                                       toastLength: Toast.LENGTH_SHORT,
                                       gravity: ToastGravity.TOP,
                                     );
@@ -155,7 +189,6 @@ class _AddUserClassState extends State<AddUserClass> {
                                         .set({
                                       'students': [],
                                       'name': classname,
-                                      'number': 10,
                                       'image': 'assets/images/ux_design.jpg',
                                     });
                                     Fluttertoast.showToast(
@@ -182,7 +215,7 @@ class _AddUserClassState extends State<AddUserClass> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            BottomNavScreen()));
+                                            BottomNavScreen(email)));
                               }
                             },
                             child: Container(

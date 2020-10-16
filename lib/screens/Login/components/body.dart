@@ -75,7 +75,7 @@ class Body extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => BottomNavScreen()));
+                            builder: (context) => BottomNavScreen(email)));
                   } catch (e) {
                     print("Invalid username or password");
                     Fluttertoast.showToast(

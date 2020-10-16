@@ -1,41 +1,51 @@
 import 'package:attendance/constants.dart';
+import 'package:attendance/screens/Login/components/body.dart';
 import 'package:attendance/screens/Login/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance/screens/screens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:attendance/main.dart';
 
-String email;
+//String email;
 SharedPreferences pref;
 
 class BottomNavScreen extends StatefulWidget {
+  final String uemail;
+  BottomNavScreen(this.uemail);
   @override
   _BottomNavScreenState createState() => _BottomNavScreenState();
 }
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   var sample;
+  String userEmail;
+  @override
+  void initState() {
+    setState(() {
+      userEmail = widget.uemail;
+    });
+  }
   // Future newcall() async {
   //   pref = await SharedPreferences.getInstance();
   // }
 
-  @override
-  void initState() {
-    super.initState();
-    SharedPreferences.getInstance().then((SharedPreferences sp){
-      pref = sp;
-      email = sp.getString('email');
-      if(email == null){
-        email = null;
-        email = 'akil@gmail.com';
-      }
-      setState(() {});
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   SharedPreferences.getInstance().then((SharedPreferences sp) {
+  //     pref = sp;
+  //     email = sp.getString('email');
+  //     if (email == null) {
+  //       email = null;
+  //       email = 'akil@gmail.com';
+  //     }
+  //     setState(() {});
+  //   });
+  // }
 
   @override
   Future<bool> _onBackPressed() async {
-  
     return showDialog(
           context: context,
           builder: (context) {

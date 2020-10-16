@@ -10,9 +10,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   SharedPreferences preferences = await SharedPreferences.getInstance();
-  var ex = preferences.getString('email');
+  String ex = preferences.getString('email');
   runApp(MaterialApp(
-    home: ex == null ? MyApp() : BottomNavScreen(),
+    home: ex == null ? MyApp() : BottomNavScreen(ex),
   ));
 }
 
