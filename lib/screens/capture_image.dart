@@ -3,30 +3,34 @@ import 'dart:io';
 import 'dart:async';
 import 'package:image_picker/image_picker.dart';
 
-
-class CaptureImage extends StatefulWidget{
-  @override 
+class CaptureImage extends StatefulWidget {
+  @override
   _CaptureImageState createState() => _CaptureImageState();
 }
-class _CaptureImageState extends State<CaptureImage>{
+
+class _CaptureImageState extends State<CaptureImage> {
   File _image;
-  Future getImage() async{
+
+  Future getImage() async {
+
     final image = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() => [
-      _image = image,
-    ]);
+          _image = image,
+        ]);
   }
+
   @override
-  void initState(){
-      getImage();
-      super.initState();
-    }
-  Widget build (BuildContext context){
-    
+  void initState() {
+    getImage();
+    super.initState();
+  }
+
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-
-        child: _image == null ? Text('Capture Image for Attendance') : Image.file(_image),
+        child: _image == null
+            ? Text('Capture Image for Attendance')
+            : Image.file(_image),
       ),
     );
   }
