@@ -10,7 +10,9 @@ class CaptureImage extends StatefulWidget {
 
 class _CaptureImageState extends State<CaptureImage> {
   File _image;
+
   Future getImage() async {
+
     final image = await ImagePicker.pickImage(source: ImageSource.gallery);
     setState(() => [
           _image = image,
