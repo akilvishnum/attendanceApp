@@ -1,9 +1,3 @@
-//import 'dart:js_util';
-
-import 'dart:developer';
-import 'dart:ffi';
-//import 'dart:html';
-
 import 'package:attendance/constraints.dart';
 import 'package:attendance/model/classes.dart';
 import 'package:attendance/screens/all_class.dart';

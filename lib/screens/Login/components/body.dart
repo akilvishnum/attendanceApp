@@ -1,5 +1,6 @@
 import 'package:attendance/constraints.dart';
 import 'package:attendance/screens/bottom_nav_bar.dart';
+import 'package:attendance/screens/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance/screens/Login/components/background.dart';
 import 'package:attendance/screens/Signup/signup_screen.dart';
@@ -23,82 +24,89 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Background(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "LOGIN",
-              style: kSubheadingextStyle.copyWith(fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: size.height * 0.03),
-            Container(
-              width: size.width,
-              height: size.height * 0.35,
-              child: Container(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      'assets/images/login.svg',
-                      width: size.width,
-                      height: size.height * 0.35,
-                    ),
-                  ],
+    return WillPopScope(
+      onWillPop: () {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+      },
+      child: Background(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                "LOGIN",
+                style:
+                    kSubheadingextStyle.copyWith(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: size.height * 0.03),
+              Container(
+                width: size.width,
+                height: size.height * 0.35,
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        'assets/images/login.svg',
+                        width: size.width,
+                        height: size.height * 0.35,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            RoundedInputField(
-              hintText: "Your Email",
-              onChanged: (value) {
-                email = value;
-              },
-            ),
-            RoundedPasswordField(
-              onChanged: (value) {
-                password = value;
-              },
-            ),
-            RoundedButton(
-                text: "LOGIN",
-                press: () async {
-                  try {
-                    SharedPreferences pref =
-                        await SharedPreferences.getInstance();
-                    pref.setString('email', email);
-                    UserCredential user = await FirebaseAuth.instance
-                        .signInWithEmailAndPassword(
-                            email: email, password: password);
-                    print(user.user.uid);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => BottomNavScreen(email)));
-                  } catch (e) {
-                    print("Invalid username or password");
-                    Fluttertoast.showToast(
-                      msg: "Invalid username or password",
-                      toastLength: Toast.LENGTH_SHORT,
-                      gravity: ToastGravity.TOP,
-                    );
-                  }
-                }),
-            SizedBox(height: size.height * 0.03),
-            AlreadyHaveAnAccountCheck(
-              press: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return SignUpScreen();
-                    },
-                  ),
-                );
-              },
-            ),
-          ],
+              RoundedInputField(
+                hintText: "Your Email",
+                onChanged: (value) {
+                  email = value;
+                },
+              ),
+              RoundedPasswordField(
+                onChanged: (value) {
+                  password = value;
+                },
+              ),
+              RoundedButton(
+                  text: "LOGIN",
+                  press: () async {
+                    try {
+                      SharedPreferences pref =
+                          await SharedPreferences.getInstance();
+                      pref.setString('email', email);
+                      UserCredential user = await FirebaseAuth.instance
+                          .signInWithEmailAndPassword(
+                              email: email, password: password);
+                      print(user.user.uid);
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => BottomNavScreen(email)));
+                    } catch (e) {
+                      print("Invalid username or password");
+                      Fluttertoast.showToast(
+                        msg: "Invalid username or password",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.TOP,
+                      );
+                    }
+                  }),
+              SizedBox(height: size.height * 0.03),
+              AlreadyHaveAnAccountCheck(
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return SignUpScreen();
+                      },
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
