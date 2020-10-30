@@ -5,3 +5,4 @@ export 'addUser.dart';
 export 'Welcome/welcome_screen.dart';
 export 'package:attendance/model/classes.dart';
 export 'package:attendance/constraints.dart';
+export 'package:attendance/screens/userdetails.dart';

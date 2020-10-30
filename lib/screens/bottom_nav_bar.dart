@@ -6,6 +6,8 @@ import 'package:attendance/screens/screens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:attendance/main.dart';
+import 'package:attendance/screens/userdetails.dart';
+import 'package:attendance/custom_icon_icons.dart';
 
 //String email;
 SharedPreferences pref;
@@ -145,7 +147,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     AllClass(email),
     AddUserClass("Class", null),
-    Scaffold(),
+    UserDetails(email),
     Scaffold(),
   ];
   int _currentIndex = 0;
@@ -165,9 +167,9 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
           unselectedItemColor: Colors.grey,
           elevation: 0.0,
           items: [
-            Icons.home,
+            CustomIcon.home,
             Icons.add,
-            Icons.account_circle,
+            CustomIcon.user,
           ]
               .asMap()
               .map((key, value) => MapEntry(

@@ -35,7 +35,9 @@ dependencies:
   provider: ^4.3.2+2
   fluttertoast: ^7.1.1
   shared_preferences: ^0.5.12
-
+  http: ^0.12.2
+  dio: ^3.0.10
+  firebase_storage: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +75,9 @@ flutter:
     - family: Inter
       fonts:
         - asset: assets/fonts/Inter-Bold.ttf
+    - family:  CustomIcon
+      fonts:
+        - asset: assets/fonts/CustomIcon.ttf
          
   #   - family: Trajan Pro
   #     fonts:
