@@ -37,7 +37,7 @@ class Body extends StatelessWidget {
               Text(
                 "LOGIN",
                 style:
-                    kSubheadingextStyle.copyWith(fontWeight: FontWeight.bold),
+                    kSubheadingextStyle.copyWith(fontFamily: 'Heading', fontWeight: FontWeight.bold),
               ),
               SizedBox(height: size.height * 0.03),
               Container(

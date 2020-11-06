@@ -74,10 +74,13 @@ flutter:
   fonts:
     - family: Inter
       fonts:
-        - asset: assets/fonts/Inter-Bold.ttf
+        - asset: assets/fonts/sfpro.ttf
     - family:  CustomIcon
       fonts:
         - asset: assets/fonts/CustomIcon.ttf
+    - family:  Heading
+      fonts:
+        - asset: assets/fonts/heading.ttf
          
   #   - family: Trajan Pro
   #     fonts:

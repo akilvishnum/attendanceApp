@@ -43,7 +43,7 @@ class _UserDetailsState extends State<UserDetails> {
               child: Container(
                 child: Text(
                   "Profile",
-                  style: kHeadingextStyle,
+                  style: kHeadingextStyle.copyWith(fontFamily: 'Heading', fontSize: 35,),
                 ),
               ),
             ),

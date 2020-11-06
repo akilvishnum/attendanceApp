@@ -23,7 +23,7 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Text(
               "SIGNUP",
-              style: kSubheadingextStyle.copyWith(fontWeight: FontWeight.bold),
+              style: kSubheadingextStyle.copyWith(fontFamily: 'Heading', fontWeight: FontWeight.bold),
             ),
             SizedBox(height: size.height * 0.03),
             Container(

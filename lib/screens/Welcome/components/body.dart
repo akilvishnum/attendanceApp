@@ -26,7 +26,7 @@ class Body extends StatelessWidget {
               Text(
                 "WELCOME. NICE TO HAVE YOU.",
                 style:
-                    kSubheadingextStyle.copyWith(fontWeight: FontWeight.bold),
+                    kSubheadingextStyle.copyWith(fontFamily: 'Heading', fontWeight: FontWeight.bold),
               ),
               Container(
                 width: size.width,
@@ -36,11 +36,11 @@ class Body extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/images/welcome.svg',
-                        height: size.height * 0.35,
-                        width: 0.5 * size.width,
-                      ),
+                    SvgPicture.asset(
+                      'assets/images/welcome.svg',
+                      width: size.width,
+                      height: size.height * 0.35,
+                    ),
                     ],
                   ),
                 ),
