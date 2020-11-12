@@ -72,8 +72,50 @@ class _ClassScreenState extends State<ClassScreen> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(widget._className,
-                                    style: kHeadingextStyle),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Expanded(
+                                      flex: 2,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(top: 7),
+                                            child: Text(trimName(widget._className, 20),
+                                                style: kHeadingextStyle),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Expanded(
+                                      flex: 1,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children:[ Container(
+                                          decoration: BoxDecoration(           
+                                            color: Color(0xFF11249F).withOpacity(.85),
+                                            borderRadius: BorderRadius.circular(23),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(10),
+                                            child:Row(
+                                              children: [
+                                                Icon(Icons.file_download, color: Colors.white),
+                                                SizedBox(width: 3),
+                                                Text("Download", style: kTitleTextStyle.copyWith(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 17)),
+                                              ],
+                                            ),
+                                            
+                                          ),
+                                       ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                
                                 SizedBox(height: 10),
                                 // Text("${widget._studentsCount} Students",
                                 //     style: kTitleTextStyle.copyWith(
@@ -200,11 +242,11 @@ class _ClassScreenState extends State<ClassScreen> {
   }
 }
 
-String trimName(String name){
-  if(name.length <= 25){
+String trimName(String name, int x){
+  if(name.length <= x){
     return name;
   }
-  else return name.substring(0, 23) + "...";
+  else return name.substring(0, x - 3) + "...";
 } 
 class StudentBuilder extends StatelessWidget {
   final Map<String, dynamic> docData;
@@ -237,7 +279,7 @@ class StudentBuilder extends StatelessWidget {
                       text: TextSpan(
                         children: [
                           TextSpan(
-                            text: trimName(docData['students'][index]),
+                            text: trimName(docData['students'][index], 25),
                             style: kSubtitleTextSyule.copyWith(
                               fontWeight: FontWeight.w600,
                               height: 1.5,
@@ -356,12 +398,7 @@ final List TileImage = [
   "assets/images/LightYellow.png",
   "assets/images/LightPink.png",
 ];
-String cutName(String name){
-  if(name.length <= 15){
-    return name;
-  }
-  else return name.substring(0, 15) + "...";
-}
+
 class Sview extends StatelessWidget {
   final List<DocumentSnapshot> documents;
   final String uEmail;
@@ -403,7 +440,7 @@ class Sview extends StatelessWidget {
                   children: <Widget>[
                     Padding(padding: EdgeInsets.only(left: 10),
                       child:Container(
-                        child:Text(/*newList[index].name*/ cutName(name), style: kSubheadingextStyle.copyWith(color: Colors.black)),
+                        child:Text(/*newList[index].name*/ trimName(name, 17), style: kSubheadingextStyle.copyWith(color: Colors.black)),
                       ),
                     ),
                   ],
