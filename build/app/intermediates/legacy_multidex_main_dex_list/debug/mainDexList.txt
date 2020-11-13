@@ -176,6 +176,7 @@ com/google/firebase/firestore/util/AsyncQueue.class
 com/google/firebase/firestore/util/Preconditions.class
 com/google/firebase/platforminfo/AutoValue_LibraryVersion.class
 com/google/firebase/platforminfo/LibraryVersion.class
+com/google/firebase/storage/StorageException$ErrorCode.class
 com/google/gson/annotations/Expose.class
 com/google/gson/annotations/JsonAdapter.class
 com/google/gson/annotations/SerializedName.class

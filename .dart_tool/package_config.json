@@ -80,6 +80,12 @@
       "languageVersion": "2.0"
     },
     {
+      "name": "dio",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/dio-3.0.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.4"
+    },
+    {
       "name": "fake_async",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/fake_async-1.1.0",
       "packageUri": "lib/",
@@ -138,6 +144,12 @@
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-0.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.1"
+    },
+    {
+      "name": "firebase_storage",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_storage-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
     },
     {
       "name": "flutter",
@@ -261,7 +273,7 @@
     },
     {
       "name": "path_provider",
-      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.18",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.24",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
@@ -316,6 +328,12 @@
     {
       "name": "process",
       "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/process-3.0.13",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "progress_indicators",
+      "rootUri": "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/progress_indicators-0.1.5",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -446,7 +464,7 @@
       "languageVersion": "2.1"
     }
   ],
-  "generated": "2020-10-08T13:12:56.213434Z",
+  "generated": "2020-11-13T06:33:28.419018Z",
   "generator": "pub",
   "generatorVersion": "2.9.2"
 }

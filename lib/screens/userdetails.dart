@@ -1,7 +1,8 @@
 import 'package:attendance/constraints.dart';
 import 'package:attendance/custom_icon_icons.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserDetails extends StatefulWidget {
@@ -12,15 +13,26 @@ class UserDetails extends StatefulWidget {
 }
 
 class _UserDetailsState extends State<UserDetails> {
+  int count = 0;
+  Map<String, dynamic> docList;
   void getDetails() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();
     setState(() {
       widget.useremail = preferences.getString("email");
     });
+    await FirebaseFirestore.instance
+        .collection('Staff')
+        .doc(widget.useremail)
+        .snapshots()
+        .listen((event) {
+      docList = event.data();
+    }).onDone(() {
+      docList = docList;
+    });
   }
 
   @override
-  void initstate() {
+  void initState() {
     getDetails();
   }
 
@@ -43,7 +55,10 @@ class _UserDetailsState extends State<UserDetails> {
               child: Container(
                 child: Text(
                   "Profile",
-                  style: kHeadingextStyle.copyWith(fontFamily: 'Heading', fontSize: 35,),
+                  style: kHeadingextStyle.copyWith(
+                    fontFamily: 'Heading',
+                    fontSize: 35,
+                  ),
                 ),
               ),
             ),
@@ -144,34 +159,34 @@ class _UserDetailsState extends State<UserDetails> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: w / 20),
-                                            child: Container(
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                                                    child: Icon(
-                                                      Icons
-                                                          .sentiment_very_satisfied,
-                                                      color: Color(0xFF3383CD),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.all(20),
-                                                    child: Text(
-                                                      "Teaching 162 Happy Students",
-                                                      style: kTitleTextStyle
-                                                          .copyWith(
-                                                        color: Colors.black,
-                                                        fontSize: 22,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
+                                          // Padding(
+                                          //   padding:
+                                          //       EdgeInsets.only(bottom: w / 20),
+                                          //   child: Container(
+                                          //     child: Row(
+                                          //       children: [
+                                          //         Container(
+                                          //           child: Icon(
+                                          //             Icons
+                                          //                 .sentiment_very_satisfied,
+                                          //             color: Color(0xFF3383CD),
+                                          //           ),
+                                          //         ),
+                                          //         Padding(
+                                          //           padding: EdgeInsets.all(20),
+                                          //           child: Text(
+                                          //             "162 Students",
+                                          //             style: kTitleTextStyle
+                                          //                 .copyWith(
+                                          //               color: Colors.black,
+                                          //               fontSize: 22,
+                                          //             ),
+                                          //           ),
+                                          //         ),
+                                          //       ],
+                                          //     ),
+                                          //   ),
+                                          // ),
                                           Padding(
                                             padding:
                                                 EdgeInsets.only(bottom: w / 20),
@@ -188,7 +203,7 @@ class _UserDetailsState extends State<UserDetails> {
                                                   Padding(
                                                     padding: EdgeInsets.all(20),
                                                     child: Text(
-                                                      "1318",
+                                                      "${docList['StaffId']}",
                                                       style: kTitleTextStyle
                                                           .copyWith(
                                                         color: Colors.black,
@@ -200,33 +215,33 @@ class _UserDetailsState extends State<UserDetails> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: w / 20),
-                                            child: Container(
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                                                    child: Icon(
-                                                      CustomIcon.home,
-                                                      color: Color(0xFF3383CD),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.all(20),
-                                                    child: Text(
-                                                      "Handling 18 Classes",
-                                                      style: kTitleTextStyle
-                                                          .copyWith(
-                                                        color: Colors.black,
-                                                        fontSize: 22,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
+                                          // Padding(
+                                          //   padding:
+                                          //       EdgeInsets.only(bottom: w / 20),
+                                          //   child: Container(
+                                          //     child: Row(
+                                          //       children: [
+                                          //         Container(
+                                          //           child: Icon(
+                                          //             CustomIcon.home,
+                                          //             color: Color(0xFF3383CD),
+                                          //           ),
+                                          //         ),
+                                          //         Padding(
+                                          //           padding: EdgeInsets.all(20),
+                                          //           child: Text(
+                                          //             " ${docList.length} Classes",
+                                          //             style: kTitleTextStyle
+                                          //                 .copyWith(
+                                          //               color: Colors.black,
+                                          //               fontSize: 22,
+                                          //             ),
+                                          //           ),
+                                          //         ),
+                                          //       ],
+                                          //     ),
+                                          //   ),
+                                          // ),
                                           Padding(
                                             padding:
                                                 EdgeInsets.only(bottom: w / 20),
@@ -242,7 +257,7 @@ class _UserDetailsState extends State<UserDetails> {
                                                   Padding(
                                                     padding: EdgeInsets.all(20),
                                                     child: Text(
-                                                      "XYZ",
+                                                      "${docList['Name']}",
                                                       style: kTitleTextStyle
                                                           .copyWith(
                                                         color: Colors.black,

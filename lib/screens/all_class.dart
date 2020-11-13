@@ -1,10 +1,15 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:attendance/screens/screens.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:http/http.dart' as http;
+//import 'package:flutter_downloader/flutter_downloader.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:dio/dio.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:progress_indicators/progress_indicators.dart';
 
 class AllClass extends StatefulWidget {
   final String email;
@@ -22,6 +27,49 @@ class ClassScreen extends StatefulWidget {
 
 class _ClassScreenState extends State<ClassScreen> {
   List studentsList;
+  String fileURL, resultPath;
+  bool downloading = false;
+  var progressString = "";
+
+  Future<bool> loader() async {
+    downloadFile();
+    return (downloading)
+        ? showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (context) => AlertDialog(
+              title: ScalingText("Downloading..."),
+            ),
+          )
+        : Text("Complete");
+  }
+
+  Future<void> downloadFile() async {
+    Dio dio = Dio();
+    try {
+      var dir = await getApplicationSupportDirectory();
+      await dio.download(
+        fileURL,
+        "${dir.path}/${resultPath}",
+        onReceiveProgress: (count, total) {
+          print("Rec: $count, Total: $total");
+          setState(() {
+            downloading = true;
+            // progressString = ((count / total) * 100).toStringAsFixed(0) + "%";
+          });
+        },
+      );
+      print("hello+ ${dir.path}");
+    } catch (e) {
+      print(e);
+    }
+    setState(() {
+      downloading = false;
+      progressString = "Completed";
+    });
+    print("Download Completed");
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -78,44 +126,85 @@ class _ClassScreenState extends State<ClassScreen> {
                                     Expanded(
                                       flex: 2,
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
                                         children: [
                                           Padding(
                                             padding: EdgeInsets.only(top: 7),
-                                            child: Text(trimName(widget._className, 20),
+                                            child: Text(
+                                                trimName(widget._className, 20),
                                                 style: kHeadingextStyle),
                                           ),
                                         ],
                                       ),
                                     ),
-                                    Expanded(
-                                      flex: 1,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children:[ Container(
-                                          decoration: BoxDecoration(           
-                                            color: Color(0xFF11249F).withOpacity(.85),
-                                            borderRadius: BorderRadius.circular(23),
-                                          ),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(10),
-                                            child:Row(
-                                              children: [
-                                                Icon(Icons.file_download, color: Colors.white),
-                                                SizedBox(width: 3),
-                                                Text("Download", style: kTitleTextStyle.copyWith(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 17)),
-                                              ],
+                                    InkWell(
+                                      onTap: () async {
+                                        resultPath =
+                                            '${widget.userEmail.split('@')[0]}_${widget._className}.csv';
+                                        StorageReference storageReference =
+                                            FirebaseStorage.instance
+                                                .ref()
+                                                .child('result/${resultPath}');
+                                        storageReference
+                                            .getDownloadURL()
+                                            .then((fileurl) {
+                                          setState(() {
+                                            fileURL = fileurl;
+                                          });
+                                          print("URL is: $fileURL");
+                                        });
+                                        loader();
+                                        // await http.get(fileURL);
+                                        // final taskId =
+                                        //     await FlutterDownloader.enqueue(
+                                        //   url: fileURL,
+                                        //   savedDir: '/Downloads',
+                                        //   showNotification: true,
+                                        //   openFileFromNotification: true,
+                                        // );
+                                      },
+                                      child: Expanded(
+                                        flex: 1,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              decoration: BoxDecoration(
+                                                color: Color(0xFF11249F)
+                                                    .withOpacity(.85),
+                                                borderRadius:
+                                                    BorderRadius.circular(23),
+                                              ),
+                                              child: Padding(
+                                                padding: EdgeInsets.all(10),
+                                                child: Row(
+                                                  children: [
+                                                    //Icon(Icons.file_download, color: Colors.white),
+                                                    SizedBox(width: 3),
+                                                    Text("Download",
+                                                        style: kTitleTextStyle
+                                                            .copyWith(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                fontSize: 17)),
+                                                  ],
+                                                ),
+                                              ),
                                             ),
-                                            
-                                          ),
-                                       ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],
                                 ),
-                                
+
                                 SizedBox(height: 10),
                                 // Text("${widget._studentsCount} Students",
                                 //     style: kTitleTextStyle.copyWith(
@@ -242,12 +331,13 @@ class _ClassScreenState extends State<ClassScreen> {
   }
 }
 
-String trimName(String name, int x){
-  if(name.length <= x){
+String trimName(String name, int x) {
+  if (name.length <= x) {
     return name;
-  }
-  else return name.substring(0, x - 3) + "...";
-} 
+  } else
+    return name.substring(0, x - 3) + "...";
+}
+
 class StudentBuilder extends StatelessWidget {
   final Map<String, dynamic> docData;
   StudentBuilder(this.docData);
@@ -342,8 +432,6 @@ class Students extends StatelessWidget {
 }
 
 class _AllClassState extends State<AllClass> {
-
-
   @override
   void initState() {
     print(widget.email);
@@ -366,7 +454,11 @@ class _AllClassState extends State<AllClass> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text("Classes", style: kHeadingextStyle.copyWith(fontFamily: 'Heading', fontSize: 35,)),
+                Text("Classes",
+                    style: kHeadingextStyle.copyWith(
+                      fontFamily: 'Heading',
+                      fontSize: 35,
+                    )),
               ],
             ),
 
@@ -391,6 +483,7 @@ class _AllClassState extends State<AllClass> {
     );
   }
 }
+
 final List TileImage = [
   "assets/images/LightRed.png",
   "assets/images/LightViolet.png",
@@ -438,9 +531,12 @@ class Sview extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Padding(padding: EdgeInsets.only(left: 10),
-                      child:Container(
-                        child:Text(/*newList[index].name*/ trimName(name, 17), style: kSubheadingextStyle.copyWith(color: Colors.black)),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: Container(
+                        child: Text(/*newList[index].name*/ trimName(name, 17),
+                            style: kSubheadingextStyle.copyWith(
+                                color: Colors.black)),
                       ),
                     ),
                   ],
@@ -454,3 +550,5 @@ class Sview extends StatelessWidget {
     );
   }
 }
+
+////////////////////////////////////////

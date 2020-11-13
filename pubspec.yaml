@@ -38,6 +38,9 @@ dependencies:
   http: ^0.12.2
   dio: ^3.0.10
   firebase_storage: ^4.0.1
+  #flutter_downloader: ^1.5.2
+  path_provider: ^1.6.24
+  progress_indicators: ^0.1.5
 
 dev_dependencies:
   flutter_test:

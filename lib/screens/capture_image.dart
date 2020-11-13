@@ -11,6 +11,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 //import 'package:http_parser/http_parser.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'all_class.dart';
 
 class CaptureImage extends StatefulWidget {
   String classname, useremail;
@@ -87,6 +88,17 @@ class _CaptureImageState extends State<CaptureImage> {
                                       'studentsList': '${widget.studentsList}',
                                       'url': '$_uploadedFileURL',
                                     }));
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => ClassScreen(
+                                //             widget.classname,
+                                //             widget.studentsList.length
+                                //                 .toString(),
+                                //             widget.useremail)));
+                                Navigator.pop(context);
+                                Navigator.pop(context);
+
                                 print(response.body);
                               },
                               child: Container(
