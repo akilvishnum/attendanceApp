@@ -139,6 +139,7 @@ class _ClassScreenState extends State<ClassScreen> {
                                       ),
                                     ),
                                     InkWell(
+
                                       onTap: () async {
                                         resultPath =
                                             '${widget.userEmail.split('@')[0]}_${widget._className}.csv';
@@ -164,51 +165,34 @@ class _ClassScreenState extends State<ClassScreen> {
                                         //   openFileFromNotification: true,
                                         // );
                                       },
+
                                       child: Expanded(
-                                        flex: 1,
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              decoration: BoxDecoration(
-                                                color: Color(0xFF11249F)
-                                                    .withOpacity(.85),
-                                                borderRadius:
-                                                    BorderRadius.circular(23),
-                                              ),
-                                              child: Padding(
-                                                padding: EdgeInsets.all(10),
-                                                child: Row(
-                                                  children: [
-                                                    //Icon(Icons.file_download, color: Colors.white),
-                                                    SizedBox(width: 3),
-                                                    Text("Download",
-                                                        style: kTitleTextStyle
-                                                            .copyWith(
-                                                                color: Colors
-                                                                    .white,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .normal,
-                                                                fontSize: 17)),
-                                                  ],
-                                                ),
-                                              ),
+                                      flex: 1,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children:[ Container(
+                                          decoration: BoxDecoration(           
+                                            color: Color(0xFF11249F).withOpacity(.85),
+                                            borderRadius: BorderRadius.circular(15),
+                                          ),
+                                          child: Padding(
+                                            padding: EdgeInsets.all(10),
+                                            child:Row(
+                                              children: [
+                                                Icon(Icons.file_download, color: Colors.white),
+                                                SizedBox(width: 3),
+                                                Text("Download", style: kTitleTextStyle.copyWith(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 17)),
+                                              ],
+
                                             ),
                                           ],
                                         ),
                                       ),
                                     ),
+                                    ),
                                   ],
                                 ),
-
-                                SizedBox(height: 10),
-                                // Text("${widget._studentsCount} Students",
-                                //     style: kTitleTextStyle.copyWith(
-                                //         color: kTextColor.withOpacity(.50))),
                                 SizedBox(height: 35),
                                 StreamBuilder(
                                   stream: FirebaseFirestore.instance
@@ -343,6 +327,32 @@ class StudentBuilder extends StatelessWidget {
   StudentBuilder(this.docData);
   @override
   Widget build(BuildContext context) {
+    if(docData['students'].length == 0){
+      return Container(
+          child: Column(
+          children: [
+            SizedBox(height: 30),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                  children:[ 
+                    Text(
+                        "New Class Created.",
+                        style:
+                            kSubheadingextStyle.copyWith(fontFamily: 'Heading', fontWeight: FontWeight.normal),
+                     ),
+                    Text(
+                        "Add Students to the class.",
+                        style:
+                            kSubheadingextStyle.copyWith(fontFamily: 'Heading', fontWeight: FontWeight.normal),
+                     ),
+                  ],
+              ),
+            ),
+          ],),
+      );
+    }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -499,6 +509,57 @@ class Sview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    if(documents.length == 0) { return Expanded(
+      child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(height: size.height * 0.1),
+              Container(
+                width: size.width,
+                height: size.height * 0.3,
+                child: Container(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                    Container(
+                      width: size.width,
+                      height: size.height * 0.3,
+                      decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          "assets/images/presentation.png"
+                        ),
+                      ),
+                      ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: size.height * 0.1),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  Text(
+                  "You have no class to show.",
+                  style:
+                      kSubheadingextStyle.copyWith(fontFamily: 'Heading', fontWeight: FontWeight.normal),
+                ),
+                  Text(
+                  "Create a class.",
+                  style:
+                      kSubheadingextStyle.copyWith(fontFamily: 'Heading', fontWeight: FontWeight.normal),
+                ),                
+              ],
+              ),
+              
+            ],
+      ),
+    );
+    }
     return Expanded(
       child: StaggeredGridView.countBuilder(
         crossAxisCount: 2,
