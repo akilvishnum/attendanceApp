@@ -24,6 +24,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   String userEmail;
   @override
   void initState() {
+    super.initState();
     setState(() {
       userEmail = widget.uemail;
     });

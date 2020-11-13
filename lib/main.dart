@@ -7,12 +7,15 @@ import 'package:attendance/backend.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
+//import 'package:flutter_downloader/flutter_downloader.dart';
 
 //Suriya
 // void main() => runApp(MyApp());
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  // WidgetsFlutterBinding.ensureInitialized();
+  // FlutterDownloader.initialize(debug: true);
   SharedPreferences preferences = await SharedPreferences.getInstance();
   String ex = preferences.getString('email');
   runApp(MaterialApp(

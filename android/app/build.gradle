@@ -68,4 +68,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava'
 }
