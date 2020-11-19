@@ -33,15 +33,16 @@ class _ClassScreenState extends State<ClassScreen> {
   bool downloading = false;
   var progressString = "";
 
-  sendMail() async{
+  sendMail(String fileURL) async{
+    print('File URL is' + fileURL);
     String username = "testrfc29@gmail.com";
     String password = "Test@123";
     final smtpServer = gmail(username, password);
     final message = Message()
       ..from = Address(username) 
-      ..recipients.add('ak.mads18@gmail.com')
-      ..subject = 'Mail Sent from Flutter'
-      ..text = 'Send the URL here';
+      ..recipients.add(widget.userEmail)
+      ..subject = 'Download Attendance - Smart Attendance Tracker :: ${DateTime.now()}'
+      ..text = 'DOWNLOAD LINK \n' + fileURL;
      try{
        final sendReport = await send(message, smtpServer);
        print('MessageSent');
@@ -162,7 +163,6 @@ class _ClassScreenState extends State<ClassScreen> {
                                     InkWell(
 
                                       onTap: () async {
-                                        sendMail();
                                         // resultPath =
                                         //     '${widget.userEmail.split('@')[0]}_${widget._className}.csv';
                                         // StorageReference storageReference =
@@ -175,7 +175,8 @@ class _ClassScreenState extends State<ClassScreen> {
                                         //   setState(() {
                                         //     fileURL = fileurl;
                                         //   });
-                                        //   print("URL is: $fileURL");
+                                          
+                                          sendMail("www.google.com");
                                         // });
                                         // loader();
                                         // await http.get(fileURL);
