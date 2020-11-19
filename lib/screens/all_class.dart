@@ -163,21 +163,21 @@ class _ClassScreenState extends State<ClassScreen> {
                                     InkWell(
 
                                       onTap: () async {
-                                        // resultPath =
-                                        //     '${widget.userEmail.split('@')[0]}_${widget._className}.csv';
-                                        // StorageReference storageReference =
-                                        //     FirebaseStorage.instance
-                                        //         .ref()
-                                        //         .child('result/${resultPath}');
-                                        // storageReference
-                                        //     .getDownloadURL()
-                                        //     .then((fileurl) {
-                                        //   setState(() {
-                                        //     fileURL = fileurl;
-                                        //   });
+                                        resultPath =
+                                            '${widget.userEmail.split('@')[0]}_${widget._className}.csv';
+                                        StorageReference storageReference =
+                                            FirebaseStorage.instance
+                                                .ref()
+                                                .child('result/${resultPath}');
+                                        storageReference
+                                            .getDownloadURL()
+                                            .then((fileurl) {
+                                          setState(() {
+                                            fileURL = fileurl;
+                                          });
                                           
-                                          sendMail("www.google.com");
-                                        // });
+                                          sendMail(fileURL);
+                                        });
                                         // loader();
                                         // await http.get(fileURL);
                                         // final taskId =
