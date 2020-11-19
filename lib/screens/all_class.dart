@@ -10,6 +10,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:dio/dio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:progress_indicators/progress_indicators.dart';
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server.dart'; 
 
 class AllClass extends StatefulWidget {
   final String email;
@@ -30,6 +32,25 @@ class _ClassScreenState extends State<ClassScreen> {
   String fileURL, resultPath;
   bool downloading = false;
   var progressString = "";
+
+  sendMail() async{
+    String username = "testrfc29@gmail.com";
+    String password = "Test@123";
+    final smtpServer = gmail(username, password);
+    final message = Message()
+      ..from = Address(username) 
+      ..recipients.add('ak.mads18@gmail.com')
+      ..subject = 'Mail Sent from Flutter'
+      ..text = 'Send the URL here';
+     try{
+       final sendReport = await send(message, smtpServer);
+       print('MessageSent');
+     } on MailerException catch (e){
+       print('MessageNotSent \n' + e.toString());
+     }
+      
+
+  }
 
   Future<bool> loader() async {
     downloadFile();
@@ -141,21 +162,22 @@ class _ClassScreenState extends State<ClassScreen> {
                                     InkWell(
 
                                       onTap: () async {
-                                        resultPath =
-                                            '${widget.userEmail.split('@')[0]}_${widget._className}.csv';
-                                        StorageReference storageReference =
-                                            FirebaseStorage.instance
-                                                .ref()
-                                                .child('result/${resultPath}');
-                                        storageReference
-                                            .getDownloadURL()
-                                            .then((fileurl) {
-                                          setState(() {
-                                            fileURL = fileurl;
-                                          });
-                                          print("URL is: $fileURL");
-                                        });
-                                        loader();
+                                        sendMail();
+                                        // resultPath =
+                                        //     '${widget.userEmail.split('@')[0]}_${widget._className}.csv';
+                                        // StorageReference storageReference =
+                                        //     FirebaseStorage.instance
+                                        //         .ref()
+                                        //         .child('result/${resultPath}');
+                                        // storageReference
+                                        //     .getDownloadURL()
+                                        //     .then((fileurl) {
+                                        //   setState(() {
+                                        //     fileURL = fileurl;
+                                        //   });
+                                        //   print("URL is: $fileURL");
+                                        // });
+                                        // loader();
                                         // await http.get(fileURL);
                                         // final taskId =
                                         //     await FlutterDownloader.enqueue(

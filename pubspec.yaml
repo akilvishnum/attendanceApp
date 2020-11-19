@@ -41,6 +41,7 @@ dependencies:
   #flutter_downloader: ^1.5.2
   path_provider: ^1.6.24
   progress_indicators: ^0.1.5
+  mailer: ^3.0.3
 
 dev_dependencies:
   flutter_test:
