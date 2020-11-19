@@ -185,11 +185,11 @@ class _ClassScreenState extends State<ClassScreen> {
                                                 Text("Download", style: kTitleTextStyle.copyWith(color: Colors.white, fontWeight: FontWeight.normal, fontSize: 17)),
                                               ],
 
-                                            ),
+                                            ),),),
                                           ],
                                         ),
                                       ),
-                                    ),
+                                    
                                     ),
                                   ],
                                 ),
