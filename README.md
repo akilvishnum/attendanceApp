@@ -1,6 +1,21 @@
 # Smart Attendance Tracker
 
-A Mobile application which allow users (teachers) to mark attendance using **Image recognition**. Users can mark attendance in a matter of few steps!
+#### A Mobile application which allow users (teachers) to mark attendance using **Image recognition**. Users can mark attendance in a matter of few steps!
+
+## Features of the Application
+
+* Simple, Aesthetic, User-Friendly UI which makes the app intuitive.
+* Users can signup & login in any device using their email.
+* Attendance in a matter of few steps.
+* Attendance will be marked in a csv file and the download link will be emailed.
+
+
+## Technologies used
+* Flutter / Dart
+* OpenCV
+* Firebase
+* Python
+
 
 ## How to use?
 ### 1. Clone 
@@ -33,17 +48,4 @@ $ flutter run
 ```
 
 
-## Features of the Application
-
-* Simple, Aesthetic, User-Friendly UI which makes the app intuitive.
-* Users can signup & login in any device using their email.
-* Attendance in a matter of few steps.
-* Attendance will be marked in a csv file and the download link will be emailed.
-
-
-## Technologies used
-* Flutter / Dart
-* OpenCV
-* Firebase
-* Python
 
