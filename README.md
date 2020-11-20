@@ -14,9 +14,9 @@ $ cd attendanceApp
 ```
 ### 3. Run the App
 ```sh
-# Considering that you have flutter and android sdk tools pre-installed in your systems.
 # Dependency: Flutter & Android SDK tools
-# Make sure you have USB Debugging device or Virtual Device connected
+# Considering that you have flutter and android sdk tools pre-installed in your systems.
+# Make sure you have USB Debugging device or Virtual Emulator connected
 
 $ flutter run
 
@@ -24,11 +24,13 @@ $ flutter run
 ```
 
 ### 4. Attendance in few steps
+```
 1. Open the Mobile app. Signup & login using valid email.
 2. Create a Classroom
 3. Add students to it.
 4. Upload group image by pressing Take Attendance Button.
 5. Attendance will be marked in csv file and the download link will be sent to your mail.
+```
 
 
 ## Features of the Application
