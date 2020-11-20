@@ -42,3 +42,9 @@ $ flutter run
 * Attendance will be marked in a csv file and the download link will be emailed.
 
 
+## Technologies used
+* Flutter / Dart
+* OpenCV
+* Firebase
+* Python
+
