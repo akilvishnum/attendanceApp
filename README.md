@@ -37,8 +37,7 @@ $ flutter run
 
 * Simple, Aesthetic, User-Friendly UI which makes the app intuitive.
 * Users can signup & login in any device using their email.
-* Users can create Classrooms to add students.
-* Group Photo of the students has to be uploaded and the attendance will be marked using Image recognition.
+* Attendance in a matter of few steps.
 * Attendance will be marked in a csv file and the download link will be emailed.
 
 
