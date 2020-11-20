@@ -5,7 +5,7 @@ A Mobile application which allow users (teachers) to mark attendance using **Ima
 ## How to use?
 ### 1. Clone 
 ```sh
-$ git clone https://github.com/YourUserName/attendanceApp.git
+$ git clone https://github.com/akilvishnum/attendanceApp.git
 ```
 ### 2. Move Directory
 ```sh
