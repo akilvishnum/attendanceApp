@@ -1,6 +1,6 @@
 # Smart Attendance Tracker
 
-A Mobile application which allow users (teachers) to mark attendance using Image recognition. Users can mark attendance in a matter of few steps! All that we have to do is to upload a group image and BOOM! Attendance will be marked in a csv file.
+A Mobile application which allow users (teachers) to mark attendance using Image recognition. Users can mark attendance in a matter of few steps! All that we have to do is to upload a group image and BOOM!:boom: Attendance will be marked in a csv file.
 
 ## Features of the Application
 
