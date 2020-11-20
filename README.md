@@ -42,7 +42,7 @@ $ flutter run
 ```
 1. Open the Mobile app. Signup & login using valid email.
 2. Create a Classroom
-3. Add students to it.
+3. Add students to it. (We consider that the individual image of the student will be already present.)
 4. Upload group image by pressing Take Attendance Button.
 5. Attendance will be marked in csv file and the download link will be sent to your mail.
 ```
