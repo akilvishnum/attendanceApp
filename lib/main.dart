@@ -19,6 +19,7 @@ void main() async {
   SharedPreferences preferences = await SharedPreferences.getInstance();
   String ex = preferences.getString('email');
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: ex == null ? MyApp() : BottomNavScreen(ex),
   ));
 }
