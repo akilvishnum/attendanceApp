@@ -3,7 +3,14 @@
 A Mobile application which allow users (teachers) to mark attendance using **Image recognition**. Users can mark attendance in a matter of few steps!
 
 ## Screenshots
+<table>
+  <tr>
+    <td>
 <img src = "https://user-images.githubusercontent.com/56084840/99776720-3fe37900-2b37-11eb-8fca-29ebd51b991c.jpg" width = "500" height = "300">
+      </td>
+        <td>
+          <img src = "https://user-images.githubusercontent.com/56084840/99776720-3fe37900-2b37-11eb-8fca-29ebd51b991c.jpg" width = "500" height = "300">
+    </td>
 ![LoginSignup](https://user-images.githubusercontent.com/56084840/99776720-3fe37900-2b37-11eb-8fca-29ebd51b991c.jpg = 100x100)
 ![Image1](https://user-images.githubusercontent.com/56084840/99776756-5558a300-2b37-11eb-9b06-d8172dbf1d36.jpg)
 ![Image2](https://user-images.githubusercontent.com/56084840/99776759-5689d000-2b37-11eb-8ca2-6726438ef9ac.jpg)
